@@ -7,7 +7,7 @@ on:
 
 jobs:
   run-express-server:
-    runs-on: self-hosted
+    runs-on: test-runner
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
