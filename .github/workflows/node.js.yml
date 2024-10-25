@@ -24,8 +24,13 @@ jobs:
       - name: Install PM2 globally
         run: npm install -g pm2
 
-      - name: Start server with PM2
-        run: pm2 start server.js --name simple-express-server
+      - name: Start or Restart PM2 Process
+        run: |
+          if pm2 describe simple-express-server > /dev/null; then
+            pm2 restart simple-express-server
+          else
+            pm2 start server.js --name simple-express-server
+          fi
 
       - name: Verify PM2 status
         run: pm2 list
