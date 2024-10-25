@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        continue-on-error: true
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
