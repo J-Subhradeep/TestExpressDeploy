@@ -4,7 +4,7 @@ const port = 3000; // You can change the port if needed
 
 // Simple GET endpoint
 app.get("/", (req, res) => {
-  res.send("Hello, welcome to my simple Express.js server !");
+  res.send("Hello, welcome to my simple Express.js server update !");
 });
 
 // Start the server
