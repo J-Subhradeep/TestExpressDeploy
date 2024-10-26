@@ -9,26 +9,30 @@ jobs:
   run-express-server:
     runs-on: test-runner
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-        continue-on-error: true
+      # - name: Check out repository
+      #   uses: actions/checkout@v4
+      #   continue-on-error: true
+      - name: View Directory
+        run : dir
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '20'  # Use the Node.js version your project requires
-
+      - name: Git Pull
+        run: git pull
       - name: Install dependencies
         run: npm install
 
-      - name: Install PM2 globally
-        run: npm install -g pm2
 
-      - name: Stop server with PM2
-        run: pm2 stop simple-express-server
+      # - name: Install PM2 globally
+      #   run: npm install -g pm2
 
-      - name: Start server with PM2
-        run: pm2 start server.js --name simple-express-server
+      # - name: Stop server with PM2
+      #   run: pm2 stop simple-express-server
 
-      - name: Verify PM2 status
-        run: pm2 list
+      # - name: Start server with PM2
+      #   run: pm2 start server.js --name simple-express-server
+
+      # - name: Verify PM2 status
+      #   run: pm2 list
